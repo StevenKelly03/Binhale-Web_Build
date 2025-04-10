@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cig71ardadxus"]
+
+[ext_resource type="Script" path="res://Binhale/Prefabs/score_counter.gd" id="1_jmd5d"]
+[ext_resource type="Texture2D" uid="uid://b76pxcj5tx1gh" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/flame5.png" id="2_x3g33"]
+[ext_resource type="Script" path="res://Binhale/Scripts/powerUI.gd" id="3_ukmaa"]
+[ext_resource type="Script" path="res://Binhale/Scripts/drawing_node.gd" id="4_ml4vc"]
+
+[node name="ScoreCounter" type="Node2D"]
+script = ExtResource("1_jmd5d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DrawingNode" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("4_ml4vc")
+
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 61.0
+offset_right = 175.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 46
+text = "Score:"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1800, 85)
+scale = Vector2(2.13, 2.13)
+texture = ExtResource("2_x3g33")
+script = ExtResource("3_ukmaa")

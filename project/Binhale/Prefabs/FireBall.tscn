@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhl3invlf6ndo"]
+
+[ext_resource type="Script" path="res://Binhale/Scripts/FireBall.gd" id="1_swahv"]
+[ext_resource type="Texture2D" uid="uid://bqeh54tjmohn7" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/FB500-1.png" id="2_83jd7"]
+[ext_resource type="Texture2D" uid="uid://cwkosh7ytq2uq" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/FB500-2.png" id="3_v7gcr"]
+[ext_resource type="Texture2D" uid="uid://cn2iag5bsjaim" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/FB500-3.png" id="4_jamfe"]
+[ext_resource type="Texture2D" uid="uid://fhxsvw2yvbrp" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/FB500-4.png" id="5_28gwc"]
+[ext_resource type="Texture2D" uid="uid://c1v34w371cnhi" path="res://Binhale/Assets/AnimationFrames/Powers/Fire/FB500-5.png" id="6_yr35q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yebe"]
+radius = 9.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv43n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83jd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v7gcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jamfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_28gwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yr35q")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yytea"]
+size = Vector2(22, 25.5)
+
+[node name="FireBall" type="CharacterBody2D"]
+script = ExtResource("1_swahv")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Fire"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_8yebe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_tv43n")
+animation = &"Active"
+frame_progress = 0.291695
+
+[node name="LifeTimer" type="Timer" parent="."]
+
+[node name="FireCollider" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.75)
+shape = SubResource("RectangleShape2D_yytea")
+debug_color = Color(0.0367547, 0.650514, 0, 0.42)

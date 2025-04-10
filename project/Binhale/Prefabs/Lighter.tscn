@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://booxu6fad81un"]
+
+[ext_resource type="Script" path="res://Binhale/Scripts/PowerUp.gd" id="1_7hpc4"]
+[ext_resource type="Texture2D" uid="uid://bvtm73j168v3s" path="res://Binhale/Assets/Consumables/Lighter.png" id="2_80kqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65p7r"]
+size = Vector2(39, 30)
+
+[node name="Lighter" type="Node2D" groups=["Lighter"]]
+script = ExtResource("1_7hpc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_80kqd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_65p7r")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]

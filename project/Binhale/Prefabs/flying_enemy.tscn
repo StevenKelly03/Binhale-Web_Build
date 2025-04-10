@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://dnc0ut2xrgpmx"]
+
+[ext_resource type="Script" path="res://Binhale/Scripts/enemy.gd" id="1_v6qw5"]
+[ext_resource type="PackedScene" uid="uid://b146t0b15shit" path="res://Binhale/Prefabs/projectile.tscn" id="2_g1xdf"]
+[ext_resource type="PackedScene" uid="uid://bcj60yetxf1o1" path="res://Binhale/Prefabs/arrow.tscn" id="3_5mttt"]
+[ext_resource type="Texture2D" uid="uid://boxyxbsxa451x" path="res://Binhale/Assets/Enemies/FlyingEnemy/Flight.png" id="4_vhsbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5p26"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppt8e"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4khhl"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpux7"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2xdh"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyllc"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc4lu"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nv87"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wbvf"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnccx"]
+atlas = ExtResource("4_vhsbh")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukx8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4khhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpux7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2xdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyllc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc4lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nv87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wbvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnccx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="FlyingEnemy" type="CharacterBody2D" groups=["FlyingEnemy"]]
+script = ExtResource("1_v6qw5")
+projectile_scene = ExtResource("2_g1xdf")
+arrow_scene = ExtResource("3_5mttt")
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="."]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_b5p26")
+
+[node name="EnemyArea" type="Area2D" parent="."]
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="EnemyArea"]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_ppt8e")
+debug_color = Color(0.0367547, 0.650514, 0, 0.42)
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+position = Vector2(1, -2)
+target_position = Vector2(17, 0)
+
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+position = Vector2(1, -2)
+rotation = -3.14159
+target_position = Vector2(17, -4.31538e-05)
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -5)
+sprite_frames = SubResource("SpriteFrames_ukx8o")
+animation = &"Idle"
+frame_progress = 0.150074
+speed_scale = 2.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

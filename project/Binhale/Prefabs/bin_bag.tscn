@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqpy6tqkkcpry"]
+
+[ext_resource type="Script" path="res://Binhale/Scripts/Consumable.gd" id="1_6cflj"]
+[ext_resource type="Texture2D" uid="uid://idqdp16l8xxc" path="res://Binhale/Assets/Consumables/bin_bag.png" id="1_slstk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3celw"]
+size = Vector2(31, 26)
+
+[node name="BinBag" type="Node2D"]
+script = ExtResource("1_6cflj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_slstk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_3celw")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]

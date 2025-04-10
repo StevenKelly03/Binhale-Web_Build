@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bv422bjpf4x7i"
+path="res://.godot/imported/Hit Sound-001.wav-9af6d9955d6e94c76934a3cee359f510.sample"
+
+[deps]
+
+source_file="res://Binhale/Assets/Audio/Enemy/Hit Sound-001.wav"
+dest_files=["res://.godot/imported/Hit Sound-001.wav-9af6d9955d6e94c76934a3cee359f510.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

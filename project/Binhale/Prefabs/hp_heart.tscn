@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://conlxcsr3hb3j"]
+
+[ext_resource type="Texture2D" uid="uid://drvo1xxxmqfn0" path="res://Binhale/Assets/Other/heart.png" id="1_vso71"]
+
+[node name="HP_Heart" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.023, 0.023)
+texture = ExtResource("1_vso71")

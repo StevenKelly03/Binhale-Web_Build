@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brjtm6p3b2xgt"]
+
+[ext_resource type="AudioStream" uid="uid://2q2h761ng636" path="res://Binhale/Assets/Audio/Other/menuMusic.mp3" id="1_8k3ri"]
+[ext_resource type="Script" path="res://Binhale/Scripts/menu_music_manager.gd" id="1_rpu1r"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_8k3ri")
+volume_db = -10.0
+script = ExtResource("1_rpu1r")

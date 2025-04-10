@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbut7a6wmggjh"]
+
+[ext_resource type="Script" path="res://Binhale/Scripts/flyingProjectile.gd" id="1_noe7n"]
+[ext_resource type="Texture2D" uid="uid://du5e28ghd0fvc" path="res://Binhale/Assets/EnemyProjectiles/Monster-Energy.png" id="2_vetod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyfx"]
+size = Vector2(20, 40)
+
+[node name="FlyingProjectile" type="Area2D" groups=["EnemyProjectile"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_noe7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vetod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["EnemyProjectile"]]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_3uyfx")

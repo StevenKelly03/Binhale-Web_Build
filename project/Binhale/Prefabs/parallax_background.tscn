@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2x7fjm2kcqop"]
+
+[ext_resource type="Texture2D" uid="uid://dlha2u4k72dqm" path="res://Binhale/Assets/Backgrounds/forestBackground.jpg" id="1_13wjq"]
+
+[node name="ParallaxBackground" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_13wjq")
