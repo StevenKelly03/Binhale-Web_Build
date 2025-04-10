@@ -55,13 +55,18 @@ var arrow_instance: Node2D = null # instance of the offscreen arrow
 
 
 func _ready() -> void:
+	# Disable physics process at the very start for flying enemies
+	if is_in_group("FlyingEnemy"):
+		set_physics_process(false)
+		up_direction = Vector2.UP
+		
 	current_scene_as_string = current_scene.scene_file_path.get_file().get_basename()
 	
 	# Store initial position for MovingEnemy
 	if is_in_group("MovingEnemy"):
 		$InitialPosition.position = position
 
-	if current_scene_as_string == "Level2" and can_shoot == true or current_scene_as_string == "Level3" and can_shoot:
+	if current_scene_as_string == "Level2" and can_shoot == true:
 		audio_player.stream = level2_attack_sound
 	else:
 		audio_player.stream = level1_attack_sound
@@ -83,15 +88,17 @@ func _ready() -> void:
 		current_state = State.WAITING # set state to waiting
 		sprite.play("Idle") # play idle animation
 		can_move = true # flying enemies start moving immediately
+		
 		# Store original collision settings
 		original_collision_mask = collision_mask
 		original_collision_layer = collision_layer
-		# Set collision layer to only collide with player (layer 1)
-		collision_layer = 1
-		# Set collision mask to only detect player (layer 1)
-		collision_mask = 1
-		# Set initial Y position
+		# Disable collisions initially for flying enemies
+		collision_mask = 0
+		collision_layer = 0
+		
+		# Set initial Y position and ensure it stays there
 		position.y = initial_y_position
+		velocity = Vector2.ZERO
 		
 		if can_shoot:
 			audio_player.pitch_scale = 4 # change pitch for shooting sound
@@ -101,6 +108,11 @@ func _ready() -> void:
 			initial_delay_timer.timeout.connect(_on_initial_delay_timeout)
 			add_child(initial_delay_timer)
 			initial_delay_timer.start()
+		
+		# Wait a frame to ensure position is set
+		await get_tree().process_frame
+		# Re-enable physics process after initialization
+		set_physics_process(true)
 	elif can_shoot:
 		audio_player.pitch_scale = 1.1
 		# Set up initial delay timer
@@ -153,8 +165,8 @@ func _physics_process(delta: float) -> void:
 			$EnemySprite.play("Idle")
 			
 	if is_in_group("FlyingEnemy"):
-		# Flying enemies ignore gravity
-		velocity.y = 0
+		# Flying enemies ignore gravity completely
+		velocity.y = 0 if current_state == State.WAITING else velocity.y
 	else:
 		velocity.y += gravity * delta  # Apply gravity only to non-flying enemies
 		

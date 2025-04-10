@@ -25,6 +25,8 @@ var damage_timer: Timer
 var damage_interval = 1.0  # Damage every second
 
 func _ready():
+	particles.emitting = false
+	
 	var game_over_screen = load("res://Binhale/Scenes/GameOver.tscn").instantiate()
 	game_over_screen.set_background_image(background_image_path)
 	
@@ -119,8 +121,6 @@ func update_healthbar():
 		# Start emitting particles when health reaches 50%
 		if health_ratio <= 0.5 and not particles.emitting:
 			particles.emitting = true
-		elif health_ratio > 0.5 and particles.emitting:
-			particles.emitting = false
 
 func environmental_collapse():
 	var timer = get_tree().create_timer(2.5)

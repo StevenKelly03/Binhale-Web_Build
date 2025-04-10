@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dygd7vr1cwdd4"]
+[gd_scene load_steps=38 format=3 uid="uid://dygd7vr1cwdd4"]
 
 [ext_resource type="Script" path="res://Binhale/Scripts/Level1_manager.gd" id="1_8fpyd"]
 [ext_resource type="Texture2D" uid="uid://dlha2u4k72dqm" path="res://Binhale/Assets/Backgrounds/forestBackground.jpg" id="1_kw051"]
@@ -13,11 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://drvo1xxxmqfn0" path="res://Binhale/Assets/Other/heart.png" id="9_hlqo8"]
 [ext_resource type="PackedScene" uid="uid://cqpy6tqkkcpry" path="res://Binhale/Prefabs/bin_bag.tscn" id="10_cgi40"]
 [ext_resource type="PackedScene" uid="uid://cig71ardadxus" path="res://Binhale/Prefabs/score_counter.tscn" id="14_wtrm7"]
+[ext_resource type="PackedScene" uid="uid://bhl3invlf6ndo" path="res://Binhale/Prefabs/FireBall.tscn" id="16_h4nmo"]
 [ext_resource type="PackedScene" uid="uid://booxu6fad81un" path="res://Binhale/Prefabs/Lighter.tscn" id="16_m25t6"]
 [ext_resource type="PackedScene" uid="uid://c4c5wglf2o44x" path="res://Binhale/Prefabs/LevelTransition.tscn" id="17_acggj"]
-[ext_resource type="Script" path="res://Binhale/Scripts/Player.gd" id="19_75rnt"]
 [ext_resource type="Texture2D" uid="uid://dcw6rubwd15g8" path="res://Binhale/Assets/Other/bus.webp" id="21_ifito"]
-[ext_resource type="PackedScene" uid="uid://bhl3invlf6ndo" path="res://Binhale/Prefabs/FireBall.tscn" id="21_rc3v0"]
 [ext_resource type="Script" path="res://Binhale/Scripts/bus.gd" id="22_5f8u7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2ci"]
@@ -545,8 +544,7 @@ scale = Vector2(1, 2.8)
 
 [node name="Player" parent="." instance=ExtResource("3_1oqiq")]
 position = Vector2(388, 898)
-script = ExtResource("19_75rnt")
-fireball_scene = ExtResource("21_rc3v0")
+fireball_scene = ExtResource("16_h4nmo")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(45, -87)

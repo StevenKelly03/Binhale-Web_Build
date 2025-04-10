@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://hs7l4tojla11"]
+[gd_scene load_steps=42 format=3 uid="uid://hs7l4tojla11"]
 
 [ext_resource type="Script" path="res://Binhale/Scripts/Level2_manager.gd" id="1_0pyc2"]
 [ext_resource type="AudioStream" uid="uid://dr7jpegi1bs2i" path="res://Binhale/Assets/Audio/Ambience/underwater.mp3" id="2_6jq4x"]
@@ -20,8 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bmgp1b2xxs5wg" path="res://Binhale/Assets/Other/speechBubble.png" id="13_82bnc"]
 [ext_resource type="Script" path="res://Binhale/Scripts/bus.gd" id="14_cjjmh"]
 [ext_resource type="PackedScene" uid="uid://bbut7a6wmggjh" path="res://Binhale/Prefabs/flying_enemy_projectile.tscn" id="14_ni38p"]
-[ext_resource type="Script" path="res://Binhale/Scripts/Player.gd" id="18_qw3x0"]
-[ext_resource type="PackedScene" uid="uid://bhl3invlf6ndo" path="res://Binhale/Prefabs/FireBall.tscn" id="19_vcrw7"]
+[ext_resource type="PackedScene" uid="uid://bhl3invlf6ndo" path="res://Binhale/Prefabs/FireBall.tscn" id="20_s7d8n"]
 [ext_resource type="PackedScene" uid="uid://dnc0ut2xrgpmx" path="res://Binhale/Prefabs/flying_enemy.tscn" id="22_7q4sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prulm"]
@@ -283,7 +282,7 @@ texture = ExtResource("3_7p5ec")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(985, -69)
-amount = 10
+amount = 20
 lifetime = 10.0
 speed_scale = 0.15
 explosiveness = 0.2
@@ -622,6 +621,7 @@ can_shoot = true
 fire_rate = 6.0
 projectile_scene = ExtResource("14_ni38p")
 flying_amplitude = 60.0
+initial_y_position = 936.0
 start_moving_right = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/FlyingEnemy"]
@@ -633,6 +633,7 @@ position = Vector2(568, 936)
 can_shoot = true
 fire_rate = 6.0
 projectile_scene = ExtResource("14_ni38p")
+initial_y_position = 936.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/FlyingEnemy2"]
 
@@ -672,8 +673,7 @@ texture = ExtResource("13_82bnc")
 
 [node name="Player" parent="." instance=ExtResource("11_242lg")]
 position = Vector2(256, 901)
-script = ExtResource("18_qw3x0")
-fireball_scene = ExtResource("19_vcrw7")
+fireball_scene = ExtResource("20_s7d8n")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(45, -87)
