@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c7r8x081ig6cn"]
+[gd_scene load_steps=43 format=3 uid="uid://c7r8x081ig6cn"]
 
 [ext_resource type="Script" path="res://Binhale/Scripts/Level3_manager.gd" id="1_023h7"]
 [ext_resource type="Texture2D" uid="uid://bhtg5iaoyki0k" path="res://Binhale/Assets/Backgrounds/Level3.png" id="3_8kva7"]
@@ -12,9 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bs5ra0yu63cj4" path="res://Binhale/Assets/Free/Terrain/Terrain (16x16).png" id="11_njfh8"]
 [ext_resource type="PackedScene" uid="uid://dngwfoixsoq62" path="res://Binhale/Prefabs/enemy_Level2.tscn" id="12_s6gp4"]
 [ext_resource type="PackedScene" uid="uid://bbut7a6wmggjh" path="res://Binhale/Prefabs/flying_enemy_projectile.tscn" id="13_c7lsu"]
-[ext_resource type="PackedScene" uid="uid://c4c5wglf2o44x" path="res://LevelTransition.tscn" id="13_g21vi"]
+[ext_resource type="PackedScene" uid="uid://c4c5wglf2o44x" path="res://Binhale/Prefabs/LevelTransition.tscn" id="13_g21vi"]
 [ext_resource type="PackedScene" uid="uid://dnc0ut2xrgpmx" path="res://Binhale/Prefabs/flying_enemy.tscn" id="13_lci8u"]
-[ext_resource type="Script" path="res://Binhale/Scripts/level_transition.gd" id="14_lkgtk"]
 [ext_resource type="Texture2D" uid="uid://dcw6rubwd15g8" path="res://Binhale/Assets/Other/bus.webp" id="14_sa0yb"]
 [ext_resource type="Texture2D" uid="uid://ch3ypjiumqaw1" path="res://Binhale/Assets/Other/lochNess.png" id="15_tb0by"]
 [ext_resource type="Texture2D" uid="uid://bmgp1b2xxs5wg" path="res://Binhale/Assets/Other/speechBubble.png" id="16_b6poo"]
@@ -594,7 +593,6 @@ libraries = {
 [node name="LevelTransition" parent="." instance=ExtResource("13_g21vi")]
 position = Vector2(2213.22, 820)
 scale = Vector2(1, 2.8)
-script = ExtResource("14_lkgtk")
 
 [connection signal="enemy_died" from="Enemies/Enemy" to="." method="_on_enemy_died"]
 [connection signal="enemy_died" from="Enemies/Enemy2" to="." method="_on_enemy_died"]
