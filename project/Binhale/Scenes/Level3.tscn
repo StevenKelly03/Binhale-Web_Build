@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Binhale/Scripts/Level3_manager.gd" id="1_023h7"]
 [ext_resource type="Texture2D" uid="uid://bhtg5iaoyki0k" path="res://Binhale/Assets/Backgrounds/Level3.png" id="3_8kva7"]
-[ext_resource type="Texture2D" uid="uid://i1qp8bq4aq0f" path="res://Binhale/Assets/Other/fish.png" id="3_gntd4"]
+[ext_resource type="Texture2D" uid="uid://3pk7u5mu0mph" path="res://Binhale/Assets/Environment/ash.png" id="3_arykc"]
 [ext_resource type="PackedScene" uid="uid://cqm1uxqt68xqw" path="res://Binhale/Prefabs/banana_peel.tscn" id="4_be1ka"]
 [ext_resource type="PackedScene" uid="uid://cqpy6tqkkcpry" path="res://Binhale/Prefabs/bin_bag.tscn" id="5_seqm5"]
 [ext_resource type="PackedScene" uid="uid://brn63ed7v6efa" path="res://Binhale/Prefabs/can.tscn" id="6_iv4mj"]
@@ -282,13 +282,13 @@ texture = ExtResource("3_8kva7")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(985, -69)
-amount = 20
+amount = 60
 lifetime = 10.0
 speed_scale = 0.15
 explosiveness = 0.2
-texture = ExtResource("3_gntd4")
+texture = ExtResource("3_arykc")
 emission_shape = 3
-emission_rect_extents = Vector2(750, 1)
+emission_rect_extents = Vector2(850, 1)
 spread = 96.43
 gravity = Vector2(0, 900)
 angle_max = 123.5

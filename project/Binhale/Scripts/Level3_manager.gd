@@ -6,6 +6,7 @@ extends Node2D
 @onready var door_collision = $Boundaries/RightBoundary
 @onready var bus_animation = $Bus/AnimationPlayer
 @onready var bus = $Bus
+@onready var particles = $CPUParticles2D
 
 var max_health = 100
 var current_health = max_health
@@ -17,6 +18,8 @@ var enemies_remaining: int = 0  # Initialize to 0
 var game_over_screen
 
 func _ready():	
+	particles.emitting = false
+	
 	game_over_screen = load("res://Binhale/Scenes/GameOver.tscn").instantiate()
 	game_over_screen.set_background_image(background_image_path)
 	
@@ -89,6 +92,11 @@ func update_healthbar():
 
 		# apply color
 		stylebox.bg_color = new_color
+		
+		if health_ratio <= 0.5:
+			particles.emitting = true
+		else:
+			particles.emitting = false
 
 func environmental_collapse():
 	var timer = get_tree().create_timer(2.5)
