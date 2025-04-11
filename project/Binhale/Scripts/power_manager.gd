@@ -2,7 +2,7 @@ extends Node
 
 var unlocked_powers = {
 	"fire": false,
-	"smoke": true,
+	"smoke": false,
 	"electricity": false,
 	"none": true
 }
