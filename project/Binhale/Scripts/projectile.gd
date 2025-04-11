@@ -8,8 +8,8 @@ var direction: Vector2 = Vector2.ZERO  # movement direction
 
 func _ready() -> void:
 	add_to_group("EnemyProjectile")  # add to enemy group
-	await get_tree().create_timer(lifetime).timeout  # wait for lifetime
 	self.body_entered.connect(_on_body_entered)  # detect collisions
+	await get_tree().create_timer(lifetime).timeout  # wait for lifetime
 	queue_free()  # remove after lifetime
 
 func _process(delta: float) -> void:
