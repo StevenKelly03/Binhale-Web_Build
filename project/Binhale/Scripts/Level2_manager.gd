@@ -136,7 +136,7 @@ func _on_enemy_died():
 
 func open_door():
 	var door_sound = AudioStreamPlayer2D.new()
-	door_sound.volume_db = 30
+	door_sound.volume_db = 15
 	door_sound.pitch_scale = 0.6
 	door_sound.stream = preload("res://Binhale/Assets/Audio/Other/doorOpen.mp3")
 	add_child(door_sound)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://c7r8x081ig6cn"]
+[gd_scene load_steps=43 format=3 uid="uid://c7r8x081ig6cn"]
 
 [ext_resource type="Script" path="res://Binhale/Scripts/Level3_manager.gd" id="1_023h7"]
 [ext_resource type="Texture2D" uid="uid://bhtg5iaoyki0k" path="res://Binhale/Assets/Backgrounds/Level3.png" id="3_8kva7"]
+[ext_resource type="Texture2D" uid="uid://i1qp8bq4aq0f" path="res://Binhale/Assets/Other/fish.png" id="3_gntd4"]
 [ext_resource type="PackedScene" uid="uid://cqm1uxqt68xqw" path="res://Binhale/Prefabs/banana_peel.tscn" id="4_be1ka"]
 [ext_resource type="PackedScene" uid="uid://cqpy6tqkkcpry" path="res://Binhale/Prefabs/bin_bag.tscn" id="5_seqm5"]
 [ext_resource type="PackedScene" uid="uid://brn63ed7v6efa" path="res://Binhale/Prefabs/can.tscn" id="6_iv4mj"]
@@ -279,6 +280,19 @@ offset_right = 2735.0
 offset_bottom = 1085.0
 texture = ExtResource("3_8kva7")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(985, -69)
+amount = 20
+lifetime = 10.0
+speed_scale = 0.15
+explosiveness = 0.2
+texture = ExtResource("3_gntd4")
+emission_shape = 3
+emission_rect_extents = Vector2(750, 1)
+spread = 96.43
+gravity = Vector2(0, 900)
+angle_max = 123.5
+
 [node name="Consumables" type="Node" parent="."]
 
 [node name="BananaPeel" parent="Consumables" instance=ExtResource("4_be1ka")]
@@ -476,7 +490,8 @@ fire_rate = 10.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/Enemy"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/Enemy"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/Enemy"]
+volume_db = -10.0
 
 [node name="Enemy2" parent="Enemies" groups=["StillEnemy"] instance=ExtResource("12_s6gp4")]
 position = Vector2(1615, 515)
@@ -485,7 +500,8 @@ fire_rate = 5.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/Enemy2"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/Enemy2"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/Enemy2"]
+volume_db = -10.0
 
 [node name="Enemy3" parent="Enemies" groups=["StillEnemy"] instance=ExtResource("12_s6gp4")]
 position = Vector2(463, 628)
@@ -494,7 +510,8 @@ fire_rate = 5.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/Enemy3"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/Enemy3"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/Enemy3"]
+volume_db = -10.0
 
 [node name="Enemy4" parent="Enemies" groups=["StillEnemy"] instance=ExtResource("12_s6gp4")]
 position = Vector2(831, 228)
@@ -503,7 +520,8 @@ fire_rate = 6.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/Enemy4"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/Enemy4"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/Enemy4"]
+volume_db = -10.0
 
 [node name="Enemy5" parent="Enemies" groups=["StillEnemy"] instance=ExtResource("12_s6gp4")]
 position = Vector2(944, 228)
@@ -512,7 +530,8 @@ fire_rate = 7.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/Enemy5"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/Enemy5"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/Enemy5"]
+volume_db = -10.0
 
 [node name="FollowingEnemy" parent="Enemies" groups=["FollowingEnemy"] instance=ExtResource("12_s6gp4")]
 position = Vector2(1165, 900)
@@ -521,7 +540,8 @@ fire_rate = 4.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/FollowingEnemy"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/FollowingEnemy"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/FollowingEnemy"]
+volume_db = -10.0
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("13_lci8u")]
 position = Vector2(738, 956)
@@ -529,7 +549,8 @@ fire_rate = 3.0
 projectile_scene = ExtResource("13_c7lsu")
 initial_y_position = 956.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemies/FlyingEnemy"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Enemies/FlyingEnemy"]
+volume_db = -10.0
 
 [node name="ShootTimer" type="Timer" parent="Enemies/FlyingEnemy"]
 

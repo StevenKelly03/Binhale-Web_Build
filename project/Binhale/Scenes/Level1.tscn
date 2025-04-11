@@ -483,12 +483,10 @@ position = Vector2(1890, 900)
 can_shoot = true
 fire_rate = 7.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RegularEnemies/Enemy"]
-volume_db = -20.0
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="RegularEnemies/Enemy"]
+volume_db = -10.0
 
 [node name="ShootTimer" type="Timer" parent="RegularEnemies/Enemy"]
-
-[node name="ShootTimer2" type="Timer" parent="RegularEnemies/Enemy"]
 
 [node name="Enemy2" parent="RegularEnemies" groups=["StillEnemy"] instance=ExtResource("7_fh1q4")]
 position = Vector2(1069, 724)
@@ -497,8 +495,8 @@ fire_rate = 5.0
 
 [node name="ShootTimer" type="Timer" parent="RegularEnemies/Enemy2"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RegularEnemies/Enemy2"]
-volume_db = -20.0
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="RegularEnemies/Enemy2"]
+volume_db = -10.0
 
 [node name="Enemy3" parent="RegularEnemies" groups=["StillEnemy"] instance=ExtResource("7_fh1q4")]
 position = Vector2(1614, 516)
@@ -507,8 +505,8 @@ fire_rate = 7.0
 
 [node name="ShootTimer" type="Timer" parent="RegularEnemies/Enemy3"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RegularEnemies/Enemy3"]
-volume_db = -20.0
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="RegularEnemies/Enemy3"]
+volume_db = -10.0
 
 [node name="Enemy4" parent="RegularEnemies" groups=["StillEnemy"] instance=ExtResource("7_fh1q4")]
 position = Vector2(304, 516)
@@ -517,8 +515,8 @@ fire_rate = 5.0
 
 [node name="ShootTimer" type="Timer" parent="RegularEnemies/Enemy4"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RegularEnemies/Enemy4"]
-volume_db = -20.0
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="RegularEnemies/Enemy4"]
+volume_db = -10.0
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
@@ -539,7 +537,7 @@ shape = SubResource("RectangleShape2D_4q65w")
 debug_color = Color(0.960784, 0.168627, 0.270588, 0.419608)
 
 [node name="LevelTransition" parent="." instance=ExtResource("17_acggj")]
-position = Vector2(2089, 813)
+position = Vector2(2195, 820)
 scale = Vector2(1, 2.8)
 
 [node name="Player" parent="." instance=ExtResource("3_1oqiq")]

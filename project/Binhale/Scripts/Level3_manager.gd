@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var healthbar = $Canvas/EnvironmentHealth #progress bar node for environment health
-@onready var particles = $CPUParticles2D
 @onready var background_image_path = preload("res://Binhale/Assets/Backgrounds/Level3.png")
 @onready var tilemap = $TileMap
 @onready var door_collision = $Boundaries/RightBoundary
@@ -17,7 +16,7 @@ var overlay_opacity = 0.0
 var enemies_remaining: int = 0  # Initialize to 0
 var game_over_screen
 
-func _ready():
+func _ready():	
 	game_over_screen = load("res://Binhale/Scenes/GameOver.tscn").instantiate()
 	game_over_screen.set_background_image(background_image_path)
 	
@@ -38,23 +37,15 @@ func _ready():
 	# Count StillEnemies
 	var still_enemies = get_tree().get_nodes_in_group("StillEnemy")
 	enemies_remaining += still_enemies.size()
-	for enemy in still_enemies:
-		if enemy.has_signal("enemy_died"):
-			enemy.connect("enemy_died", _on_enemy_died)
 	
 	# Count FollowingEnemies
 	var following_enemies = get_tree().get_nodes_in_group("FollowingEnemy")
 	enemies_remaining += following_enemies.size()
-	for enemy in following_enemies:
-		if enemy.has_signal("enemy_died"):
-			enemy.connect("enemy_died", _on_enemy_died)
 	
 	# Count FlyingEnemies
 	var flying_enemies = get_tree().get_nodes_in_group("FlyingEnemy")
 	enemies_remaining += flying_enemies.size()
-	for enemy in flying_enemies:
-		if enemy.has_signal("enemy_died"):
-			enemy.connect("enemy_died", _on_enemy_died)
+	
 	print("Initial enemy count: ", enemies_remaining)  # Debug print
 
 func _process(_delta):
@@ -121,7 +112,7 @@ func _on_enemy_died():
 
 func open_door():
 	var door_sound = AudioStreamPlayer2D.new()
-	door_sound.volume_db = 30
+	door_sound.volume_db = 15
 	door_sound.pitch_scale = 0.5
 	door_sound.stream = preload("res://Binhale/Assets/Audio/Other/doorOpen.mp3")
 	add_child(door_sound)

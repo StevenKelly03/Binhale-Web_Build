@@ -70,7 +70,6 @@ func _ready() -> void:
 		audio_player.stream = level2_attack_sound
 	else:
 		audio_player.stream = level1_attack_sound
-		audio_player.volume_db = 1
 		audio_player.pitch_scale = 1.2
 		
 	area.area_entered.connect(_on_area_entered) # connect to area entered signal
@@ -290,10 +289,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(incoming_area: Area2D) -> void:
 	if (incoming_area.is_in_group("Fire")) or (incoming_area.is_in_group("Electricity") and player.get_electric_state()):
-		audio_player.play()
 		if is_in_group("BossEnemy"):
 			audio_player.stream = death_sound
-			audio_player.volume_db = 10
+			audio_player.volume_db = 5
 			$EnemySprite.speed_scale = 2
 			$EnemySprite.play("Hit")
 			current_hp -= 1
@@ -304,8 +302,6 @@ func _on_area_entered(incoming_area: Area2D) -> void:
 				interface.update_score_display()
 				emit_signal("enemy_died")
 		else:
-			audio_player.play()
-			await audio_player.finished
 			queue_free() # remove non-boss enemy immediately
 			ScoreManager.increment_score(value)
 			interface.update_score_display()
