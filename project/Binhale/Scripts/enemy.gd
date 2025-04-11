@@ -47,8 +47,6 @@ var can_move: bool = false # flag to control when enemies can start moving
 @onready var level1_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/Hit Sound-001.wav") # attack sound
 @onready var level2_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/frog-qua-cry-36013.mp3")
 @onready var flying_enemy_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/FlyingEnemyAttack.mp3")
-@onready var death_sound = preload("res://Binhale/Assets/Audio/Enemy/hit-flesh-02-266309.mp3"
-)
 @export var arrow_scene: PackedScene # scene for the offscreen arrow
 var arrow_instance: Node2D = null # instance of the offscreen arrow
 @onready var screen_notifier = $VisibleOnScreenNotifier2D # notifier for screen visibility
