@@ -47,6 +47,7 @@ var can_move: bool = false # flag to control when enemies can start moving
 @onready var level1_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/Hit Sound-001.wav") # attack sound
 @onready var level2_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/frog-qua-cry-36013.mp3")
 @onready var flying_enemy_attack_sound = preload("res://Binhale/Assets/Audio/Enemy/FlyingEnemyAttack.mp3")
+@onready var defeat_sound = preload("res://Binhale/Assets/Audio/Enemy/hit-flesh-02-266309.mp3")
 @export var arrow_scene: PackedScene # scene for the offscreen arrow
 var arrow_instance: Node2D = null # instance of the offscreen arrow
 @onready var screen_notifier = $VisibleOnScreenNotifier2D # notifier for screen visibility
@@ -288,6 +289,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_entered(incoming_area: Area2D) -> void:
 	if (incoming_area.is_in_group("Fire")) or (incoming_area.is_in_group("Electricity") and player.get_electric_state()):
 		if is_in_group("BossEnemy"):
+			audio_player.stream = defeat_sound
 			audio_player.volume_db = 5
 			$EnemySprite.speed_scale = 2
 			$EnemySprite.play("Hit")
