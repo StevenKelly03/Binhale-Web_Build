@@ -290,7 +290,6 @@ func _physics_process(delta: float) -> void:
 func _on_area_entered(incoming_area: Area2D) -> void:
 	if (incoming_area.is_in_group("Fire")) or (incoming_area.is_in_group("Electricity") and player.get_electric_state()):
 		if is_in_group("BossEnemy"):
-			audio_player.stream = death_sound
 			audio_player.volume_db = 5
 			$EnemySprite.speed_scale = 2
 			$EnemySprite.play("Hit")

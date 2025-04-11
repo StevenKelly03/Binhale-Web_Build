@@ -27,3 +27,9 @@ func set_current_power(power_name: String):
 	
 func get_current_power() -> String:
 	return current_power 
+	
+func reset_powers():
+	for power in unlocked_powers:
+		if power != "none":  # Keep "none" power unlocked
+			unlocked_powers[power] = false
+	current_power = "none"  # Also reset current power to none

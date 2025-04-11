@@ -38,8 +38,10 @@ func remove_enemy_projectiles():
 
 func _input(event):
 	if event.is_action_pressed("Restart"):
+		PowerManager.reset_powers()
 		get_tree().change_scene_to_file("res://Binhale/Scenes/Level1.tscn")
 	if event.is_action_pressed("Escape to Menu"):
+		PowerManager.reset_powers()
 		get_tree().change_scene_to_file("res://Binhale/Scenes/main_menu.tscn")
 		
 func play_music():
